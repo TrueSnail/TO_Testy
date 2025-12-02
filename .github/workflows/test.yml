@@ -8,7 +8,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  MatrixTest:
+  add_SimpleTest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+  add_MatrixTest:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -31,9 +49,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-
-            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm install
