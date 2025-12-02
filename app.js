@@ -1,5 +1,5 @@
 function add(a, b) {
-  return a + b - 1;
+  return a + b;
 }
 
 console.log("The sum of 2 and 3 is:");
