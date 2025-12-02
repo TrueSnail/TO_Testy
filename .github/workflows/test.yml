@@ -7,7 +7,7 @@ on:
     branches: main
 
 jobs:
-  add() SimpleTest:
+  add_SimpleTest:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
       - name: Run tests
         run: npm test
 
-  add()-MatrixTest:
+  add_MatrixTest:
     runs-on: ${{ matrix.os }}
 
     strategy:
