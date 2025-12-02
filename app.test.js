@@ -1,7 +1,7 @@
 const { add } = require('./app');
 
 describe("add()", () => {
-  test("returns the sum of two numbers", () => {
+  test("Returns the sum of two numbers", () => {
     // Arrange
     const a = 2;
     const b = 3;
